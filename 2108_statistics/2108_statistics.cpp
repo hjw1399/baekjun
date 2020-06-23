@@ -55,6 +55,7 @@ int mode_index(int *data)
 
 		이것을 반복하면 가장 많은 count가 된 값의 index가 반환될 것이고,
 		동일한 빈도를 가진 최빈값은 두번째로 작은 값의 index가 반환될 것입니다.
+
 	*/
 	unsigned int remember_max_count = 1; 
 	unsigned int mode_index = 0; 
