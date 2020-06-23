@@ -50,6 +50,10 @@ int mode_index(int *data)
 		if (data[i] == data[i + 1])
 		{
 			count++;
+			if (!isFound2st)
+			{
+				remember_max_count = count; // At first, remember_max_count has to go up together.
+			}
 		}
 		else
 		{
@@ -90,6 +94,11 @@ int main()
 		cin >> data[i];
 	}
 	sort(data, data + N);
+	/*for (auto i = 0; i < N; i++)
+	{
+		cout << data[i] << " ";
+	}
+	cout << endl;*/
 	cout << Average(data) << endl;
 	cout << data[Median_index(N)] << endl;
 	cout << data[mode_index(data)] << endl;
