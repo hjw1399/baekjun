@@ -7,13 +7,18 @@
 #include <cmath>
 #include <vector>
 #include "stdio.h"
+#include <malloc.h>
 
 using namespace std;
 
 int Average(int *data)
 {
 	double sum = 0;
-	unsigned int length = _msize(data) / sizeof(int);
+	#ifdef _WIN32
+		unsigned int length = _msize(data) / sizeof(int);
+	#elif linux
+		unsigned int length = malloc_usable_size(data) / sizeof(int);
+	#endif
 	double N = (double)length;
 	for (size_t i = 0; i < length; i++)
 	{
@@ -29,7 +34,11 @@ int Median_index(const int& N)
 
 int mode_index(int *data)
 {
-	unsigned int length = _msize(data) / sizeof(int);
+	#ifdef _WIN32
+		unsigned int length = _msize(data) / sizeof(int);
+	#elif linux
+		unsigned int length = malloc_usable_size(data) / sizeof(int);
+	#endif
 	// initial count is 1. because we have at least a datum.
 	unsigned int remember_max_count = 1; 
 	unsigned int mode_index = 0; 
@@ -63,7 +72,11 @@ int mode_index(int *data)
 
 int Ragne(int *data)
 {
-	unsigned int length = _msize(data) / sizeof(int);
+	#ifdef _WIN32
+		unsigned int length = _msize(data) / sizeof(int);
+	#elif linux
+		unsigned int length = malloc_usable_size(data) / sizeof(int);
+	#endif
 	return data[length - 1] - data[0];
 }
 
