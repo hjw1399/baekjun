@@ -111,7 +111,7 @@ int main()
 	}
 	sort(data, data + N);
 
-	cout << Average(data) << endl;
+	cout << (double)Average(data) << endl;
 	cout << data[Median_index(N)] << endl;
 	cout << data[mode_index(data)] << endl;
 	cout << Ragne(data) << endl;
