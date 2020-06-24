@@ -26,5 +26,4 @@ int main()
 {
 	int M, N;
 	cin >> M >> N;
-
 }
